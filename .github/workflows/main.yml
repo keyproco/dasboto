@@ -1,0 +1,8 @@
+name: Build Vue App
+on: workflow_dispatch
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Build Docker Image
+              run: "echo Building..."
