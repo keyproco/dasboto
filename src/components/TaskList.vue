@@ -14,9 +14,11 @@ const taskList = defineProps({
     <section class="h-full grid place-items-center">
         <div v-show="tasks.length" class="p-3">
             <h1 class="front-bold" >{{ title }}</h1>
+
             <ul class="list-disc">
-                <Task :tasks="tasks"></Task>
+                <Task v-for="task in tasks" :key="task.id" :task="task"></Task>
             </ul>
+
         </div>
     </section>
 </template>
