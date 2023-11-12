@@ -27,4 +27,23 @@ jobs:
             context: .
             push: true
             tags: keyproco/dasboto:latest
-
+        - name: Send custom JSON data to Slack workflow
+          id: slack
+          uses: slackapi/slack-github-action@v1.24.0
+          with:
+            channel-id: C065C8E2J1G
+            payload: |
+              {
+                "text": "test",
+                "blocks": [
+                  {
+                    "type": "section",
+                    "text": {
+                      "type": "mrkdwn",
+                      "text": "Test"
+                    }
+                  }          
+                ]
+              }
+          env:
+            SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
